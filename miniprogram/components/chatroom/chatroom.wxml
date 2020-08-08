@@ -1,0 +1,77 @@
+<view class="chatroom">
+  <view class="header">
+    <!-- display number of people in the room -->
+    <view class="left"></view>
+    <!-- room name -->
+    <view class="middle">{{groupName}}</view>
+    <!-- reserved -->
+    <view class="right"></view>
+  </view>
+
+  <!-- chats -->
+  <scroll-view 
+    class="body" 
+    scroll-y 
+    scroll-with-animation="{{scrollWithAnimation}}"
+    scroll-top="{{scrollTop}}" 
+    scroll-into-view="{{scrollToMessage}}"
+    bindscrolltoupper="onScrollToUpper"
+  >
+    <view 
+      wx:for="{{chats}}"
+      wx:key="{{item._id}}"
+      id="item-{{index}}"
+      class="message {{openId == item._openid ? 'message__self' : ''}}"
+    >
+      <image 
+        class="avatar"
+        src="{{item.avatar}}"
+        mode="scaleToFill"
+      ></image> 
+      <view class="main">
+        <view class="nickname">{{item.nickName}}</view>
+        <block wx:if="{{item.msgType === 'image'}}">
+          <view class="image-wrapper">
+            <view class="loading" wx:if="{{item.writeStatus > -1}}">{{item.writeStatus}}%</view>
+            <image 
+              src="{{item.tempFilePath || item.imgFileID}}" 
+              data-fileid="{{item.tempFilePath || item.imgFileID}}" 
+              class="image-content" 
+              style="{{item.imgStyle}}"
+              mode="scallToFill" 
+              bindtap="onMessageImageTap"></image>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="text-wrapper">
+            <view class="loading" wx:if="{{item.writeStatus === 'pending'}}">···</view>
+            <view class="text-content">{{item.textContent}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- message sender -->
+  <view class="footer">
+  <button wx:if="{{userInfo}}" type="primary" bindtouchstart="startRecordMp3"
+   bindtouchend="stopRecord">start</button>
+  <!-- <button wx:if="{{userInfo}}" type="primary" bindtap="stopRecord" >stop</button>-->
+  <!--<view class="message-sender" wx:if="{{userInfo}}">
+      
+      <button type="primary" touchstart="startRecordMp3" touchend="playRecord">press button to speak</button>
+
+      
+    </view>-->
+
+    <view class="message-sender" wx:if="{{!userInfo}}">
+      <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="userinfo"
+      >please login to start chat</button>
+    </view>
+  </view>
+
+</view>
+

@@ -1,0 +1,6 @@
+/**index.wxss**/
+.container {height: 100%;}
+
+button {margin: 10px;}
+
+.talk {margin-top: 38%;}

@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container">
+<div>Pronunciation Practice {{index+1}}</div>
+
+<div 
+id="origin_text" class='result' 
+style="padding:50px 50px;font-size:23px;color:green;">
+{{originData[index]}}
+</div>
+<van-dialog
+  use-slot
+  title="Result"
+  show="{{dialogShow}}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="goNext"
+  cancelButtonText="Retry"
+  confirmButtonText="Next"
+  bind:close="onClose"
+>
+  <van-row style='text-align:center;min-height:60px;'>
+    {{result}}
+  </van-row>
+  <van-row >
+  </van-row>
+  <van-row style='text-align:center;padding-top:10px;'>
+    Score:{{score}}
+  </van-row>
+</van-dialog>
+
+
+<van-loading wx:if="{{loading}}" type="spinner" color="#1989fa" />
+<div style='padding-top:70%;'>
+	<!--<van-button loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindlongtap="startRecordMp3" bindtouchend="stopRecord"  type="primary" size="large">Press to start reading</van-button>
+	<van-button loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}"   type="primary" bindtap='playRecord' size="large">Press to start play</van-button>
+	<van-button loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}"   type="primary"  bindtap='getText' size="large">Score</van-button>-->
+  <van-button type="primary" size="normal" bindtouchstart="startRecordMp3"
+   bindtouchend="stopRecord">Press to start</van-button>
+</div>
+<!--
+<textarea class='result'>{{result}}</textarea>
+<van-button type="primary"  loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" touchstart="startRecordMp3" touchend="stopRecord" >
+        开始录音 </van-button>
+        <view>
+  <button bindtap='stopRecord' type='primary'>录音结束</button>
+</view>
+<view>
+  <button bindtap='playRecord' type='primary'>播放录音</button>
+</view>
+<view>
+  <button bindtap='getText' type='primary'>读取文本</button>
+</view>-->
+</view>

@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="container">
+<van-row>
+<van-col span="24">
+<div style='line-height:36px;'>
+ <van-image
+  width="25"
+  height="25"
+  src="AI.jpg" />
+ <span style='font-size:25px;padding-left:5px;'>AITutor</span>
+</div>
+</van-col>
+</van-row>
+<van-row style="padding-bottom:10px;">
+<van-col span="24">An AI-Based Oral English Tutor</van-col>
+</van-row>
+<van-row>
+<van-col span="24">
+<div style='padding-bottom:5px;'>
+	Pick an interesting topic below to practice
+</div>
+</van-col>
+</van-row>
+<van-cell-group style="width:410px;padding-top:10px;">
+ <van-cell
+  style="width:410px;"
+  is-link
+  title="Weather"
+  link-type="navigateTo"
+  url="/pages/topics/weather"
+  size="large"
+/>	
+
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Movie"
+  link-type="navigateTo"
+  url="/pages/topics/movie"
+  size="large"
+/>	
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Music"
+  link-type="navigateTo"
+  url="/pages/topics/music"
+  size="large"
+/>	
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Sports"
+  link-type="navigateTo"
+  url="/pages/topics/sports"
+  size="large"
+/>
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Books"
+  link-type="navigateTo"
+  url="/pages/topics/books"
+  size="large"
+/>
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Travel"
+  link-type="navigateTo"
+  url="/pages/topics/travel"
+  size="large"
+/>
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Major"
+  link-type="navigateTo"
+  url="/pages/topics/major"
+  size="large"
+/>
+<van-cell
+  style="width:410px;"
+  is-link
+  title="Habits"
+  link-type="navigateTo"
+  url="/pages/topics/habits"
+  size="large"
+/>
+</van-cell-group>
+
+
+
+<!--
+<textarea class='result'>{{result}}</textarea>
+<van-button type="primary"  loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="startRecordMp3">
+        开始录音 </van-button>
+        <view>
+  <button bindtap='stopRecord' type='primary'>录音结束</button>
+</view>
+<view>
+  <button bindtap='playRecord' type='primary'>播放录音</button>
+</view>
+<view>
+  <button bindtap='getText' type='primary'>读取文本</button>
+</view>-->
+</view>

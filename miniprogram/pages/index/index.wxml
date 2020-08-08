@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container">
+<van-row>
+<van-col span="24">
+<div style='line-height:36px;'>
+ <van-image
+  width="25"
+  height="25"
+  src="/images/AI.jpg" />
+ <span style='font-size:25px;padding-left:5px;'>AITutor</span>
+</div>
+</van-col>
+</van-row>
+<van-row style="padding-bottom:10px;">
+<van-col span="24">An AI-Based Oral English Tutor</van-col>
+</van-row>
+<van-row>
+<van-col span="12">
+	<div style='line-height:36px;' bindtap="toIm">
+	<van-image
+	  width="200"
+	  height="200"
+	  src="/images/FreeChat.png" />
+	 <span style='padding-left:10px;'>FreeChat</span>
+	</div>
+</van-col>
+<van-col span="12" >
+	<div style='line-height:36px;' bindtap="toTopics">
+	 <van-image
+	  width="200"
+	  height="200"
+	  src="/images/Topics.jpg" />
+	 <span style='padding-left:10px;'>Topics Discuss</span>
+	</div>
+</van-col>
+</van-row>
+<van-row>
+<van-col span="24">
+<div style='line-height:36px;' bindtap="toPronunciation">
+	 <van-image
+	  width="400"
+	  height="400"
+	  src="/images/Pronunciation.jpg" />
+	</div>
+</van-col>
+</van-row>
+
+
+
+<!--
+<textarea class='result'>{{result}}</textarea>
+<button type="primary"  loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="startRecordMp3">
+        开始录音 </button>
+        <view>
+  <button bindtap='stopRecord' type='primary'>录音结束</button>
+</view>
+<view>
+  <button bindtap='playRecord' type='primary'>播放录音</button>
+</view>
+<view>
+  <button bindtap='getText' type='primary'>读取文本</button>
+</view>-->
+</view>
