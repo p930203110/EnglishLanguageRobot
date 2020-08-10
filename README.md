@@ -1,8 +1,8 @@
-# EnglishLanguageRobot
-EnglishLanguageRobot
+# EnglishLanguageChatBot
+EnglishLanguageChatBot
 
 
-This is our source code for our English language robot project.
+This is our source code for our English language chatbot project.
 
 
 There are three modules implement in the WeChat mini-program.
