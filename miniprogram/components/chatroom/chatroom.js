@@ -29,7 +29,9 @@ Component({
     hasKeyboard: false,
     src:'',
     audioId:'',
-    audioMap:{}
+    audioMap:{},
+    index:0,
+    initHistory:''
   },
   methods: {
     startRecordMp3: function () {
@@ -89,8 +91,11 @@ Component({
                   },
                 ],
               })
+              if(that.data.initHistory!=''&&that.data.index==0){
+                text=that.data.initHistory+text;
+              }
               wx.request({
-                url: 'http://34.96.218.200:8099/nextSentence?text='+text, //仅为示例，并非真实的接口地址
+                url: 'http://34.96.218.200:8099/nextSentence?text='+text+'|'+that.data.index, //仅为示例，并非真实的接口地址
                 data: {
                 },
                 header: {
@@ -112,6 +117,7 @@ Component({
           
                   that.setData({
                     textInputValue: '',
+                    index:that.data.index+1,
                     chats: [
                       ...that.data.chats,
                       {
@@ -164,6 +170,9 @@ Component({
     },
     initRecordManager(){
         var that = this;
+        this.setData({
+          index: 0
+        })
         this.recorderManager = wx.getRecorderManager();
         this.recorderManager.onError(function () {
           // 录音失败的回调处理
@@ -183,7 +192,7 @@ Component({
           console.log(res.tempFilePath)
           //that.tip("录音完成！")
           that.data.audioMap[that.data.audioId]=res.tempFilePath;
-          that.playRecord();
+
           that.getText();
         });
         this.innerAudioContext = wx.createInnerAudioContext();
@@ -238,7 +247,7 @@ Component({
       if(this.data.topic!=''){
         var initText="Let's talk about "+this.data.topic;
         if(this.data.topic=='weather'){
-          initText+=", what's the weather like today in your place?";
+          initText+=", what's the weather in your place?";
         }else if(this.data.topic=='books'){
           initText+=", what's your favourite book?";
         }else if(this.data.topic=='movie'){
@@ -260,6 +269,7 @@ Component({
           }
           this.setData({
             textInputValue: '',
+            initHistory:initText,
             chats: [
               ...this.data.chats,
               {
